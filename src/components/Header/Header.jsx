@@ -4,7 +4,7 @@ import logo from "../../assets/logosport.png";
 
 const Header = () => {
   return (
-    <header>
+    <header className="mainHeader">
       <img className="logo" alt="logo of company" src={logo} />
       <a href="#">Accueil</a>
       <a href="#">Profil</a>

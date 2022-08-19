@@ -6,6 +6,10 @@ import imgSwim from "./assets/swim.png";
 import imgBike from "./assets/cycle.png";
 import imgGym from "./assets/gym.png";
 import imgFire from "./assets/fire.png";
+import glucides from "./assets/apple.png";
+import iconProtein from "./assets/chicken.png";
+import fatty from "./assets/cheeseburger.png";
+import Consumption from "./components/Consumption/Consumption";
 function App() {
   return (
     <div className="App">
@@ -30,7 +34,32 @@ function App() {
             <div className="avergAct"></div>
             <div className="actType"></div>
             <div className="score"></div>
-            <div className="userData"></div>
+            <div className="userDataContanier">
+              <Consumption
+                className="imgFire"
+                img={imgFire}
+                data="1,935Cal"
+                dataType="Calories"
+              />
+              <Consumption
+                className="iconProtein"
+                img={iconProtein}
+                data="1,935Cal"
+                dataType="Protein"
+              />
+              <Consumption
+                className="glucides"
+                img={glucides}
+                data="1,935Cal"
+                dataType="glucides"
+              />
+              <Consumption
+                className="fatty"
+                img={fatty}
+                data="1,935Cal"
+                dataType="fatty"
+              />
+            </div>
           </div>
         </div>
       </section>
