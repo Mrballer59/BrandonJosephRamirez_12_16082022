@@ -1,6 +1,9 @@
 import "./style/App.css";
+//components
 import Header from "./components/Header/Header";
 import Activities from "./components/Activities/Activities";
+import Consumption from "./components/Consumption/Consumption";
+//Assets
 import imgYoga from "./assets/yoga.png";
 import imgSwim from "./assets/swim.png";
 import imgBike from "./assets/cycle.png";
@@ -9,8 +12,16 @@ import imgFire from "./assets/fire.png";
 import glucides from "./assets/apple.png";
 import iconProtein from "./assets/chicken.png";
 import fatty from "./assets/cheeseburger.png";
-import Consumption from "./components/Consumption/Consumption";
+//Data
+import MockData from "./data/data";
+import { dataUserActivity, dataUserInforMain } from "./data/DataSorter";
 function App() {
+  //console.log(MockData);
+  const userMainInformation = dataUserInforMain(MockData);
+  // console.log(userMainInformation);
+  const userActivity = dataUserActivity(MockData);
+  //console.log(userActivity.sessions[3]);
+
   return (
     <div className="App">
       <Header />
@@ -26,7 +37,7 @@ function App() {
         </aside>
         <div className="dashboardSection">
           <header className="dashboardHeader">
-            <h1>Bonjour Brandon</h1>
+            <h1>Bonjour {userMainInformation.userInfos.firstName}</h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏🏽</p>
           </header>
           <div className="dashContent">
@@ -38,25 +49,25 @@ function App() {
               <Consumption
                 className="imgFire"
                 img={imgFire}
-                data="1,935Cal"
+                data={userMainInformation.keyData.calorieCount}
                 dataType="Calories"
               />
               <Consumption
                 className="iconProtein"
                 img={iconProtein}
-                data="1,935Cal"
+                data={userMainInformation.keyData.proteinCount}
                 dataType="Protein"
               />
               <Consumption
                 className="glucides"
                 img={glucides}
-                data="1,935Cal"
+                data={userMainInformation.keyData.carbohydrateCount}
                 dataType="glucides"
               />
               <Consumption
                 className="fatty"
                 img={fatty}
-                data="1,935Cal"
+                data={userMainInformation.keyData.lipidCount}
                 dataType="fatty"
               />
             </div>
