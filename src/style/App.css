@@ -49,6 +49,7 @@ aside {
   grid-template-areas:
     ". . . ."
     "score .";
+  gap: 30px;
 }
 .dailyAct {
   background-color: var(--lightBackground);

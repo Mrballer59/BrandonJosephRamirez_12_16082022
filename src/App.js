@@ -12,6 +12,8 @@ import imgFire from "./assets/fire.png";
 import glucides from "./assets/apple.png";
 import iconProtein from "./assets/chicken.png";
 import fatty from "./assets/cheeseburger.png";
+//Barchart
+import BarChart from "./components/BarChart/BarChart";
 //Data
 import MockData from "./data/data";
 import { dataUserActivity, dataUserInforMain } from "./data/DataSorter";
@@ -41,6 +43,7 @@ function App() {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏🏽</p>
           </header>
           <div className="dashContent">
+            <BarChart />
             <div className="dailyAct"></div>
             <div className="avergAct"></div>
             <div className="actType"></div>
@@ -56,19 +59,19 @@ function App() {
                 className="iconProtein"
                 img={iconProtein}
                 data={userMainInformation.keyData.proteinCount}
-                dataType="Protein"
+                dataType="Proteines"
               />
               <Consumption
                 className="glucides"
                 img={glucides}
                 data={userMainInformation.keyData.carbohydrateCount}
-                dataType="glucides"
+                dataType="Glucides"
               />
               <Consumption
                 className="fatty"
                 img={fatty}
                 data={userMainInformation.keyData.lipidCount}
-                dataType="fatty"
+                dataType="Lipides"
               />
             </div>
           </div>
