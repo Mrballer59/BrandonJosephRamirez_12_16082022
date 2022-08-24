@@ -3,6 +3,7 @@ import "./style/App.css";
 import Header from "./components/Header/Header";
 import Activities from "./components/Activities/Activities";
 import Consumption from "./components/Consumption/Consumption";
+import SessionsChart from "./components/LineChart/LineChart";
 //Assets
 import imgYoga from "./assets/yoga.png";
 import imgSwim from "./assets/swim.png";
@@ -16,13 +17,20 @@ import fatty from "./assets/cheeseburger.png";
 import BarChart from "./components/BarChart/BarChart";
 //Data
 import MockData from "./data/data";
-import { dataUserActivity, dataUserInforMain } from "./data/DataSorter";
+import {
+  dataUserActivity,
+  dataUserInforMain,
+  dataAverageSessions,
+  dataPerformance,
+} from "./data/DataSorter";
 function App() {
   //console.log(MockData);
   const userMainInformation = dataUserInforMain(MockData);
   // console.log(userMainInformation);
   const userActivity = dataUserActivity(MockData);
   //console.log(userActivity.sessions[3]);
+  const averageSessions = dataAverageSessions(MockData);
+  console.log(averageSessions);
 
   return (
     <div className="App">
@@ -42,12 +50,27 @@ function App() {
             <h1>Bonjour {userMainInformation.userInfos.firstName}</h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏🏽</p>
           </header>
+          {/* Chart area need to resize and insert the correct tags */}
           <div className="dashContent">
-            <BarChart />
-            <div className="dailyAct"></div>
+            <BarChart
+              data={userActivity.sessions}
+              title="Activité quotidienne"
+              xDataKey=""
+              dataWeight="kilogram"
+              dataWeightAbri="Poids (kg)"
+              dataCalories="calories"
+              dataCaloriesAbri="Calories brülées (kCal)"
+            />
+            <SessionsChart
+              data={averageSessions.sessions}
+              title="Durée moyenne des sessions"
+              xDataKey="day"
+              dataLength="sessionLength"
+            />
             <div className="avergAct"></div>
-            <div className="actType"></div>
+            {/* <div className="actType"></div> */}
             <div className="score"></div>
+
             <div className="userDataContanier">
               <Consumption
                 className="imgFire"
