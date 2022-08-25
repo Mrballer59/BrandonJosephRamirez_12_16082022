@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Activities from "./components/Activities/Activities";
 import Consumption from "./components/Consumption/Consumption";
 import SessionsChart from "./components/LineChart/LineChart";
+import RadaRactivityChart from "./components/RadarChart/RadarChart";
 //Assets
 import imgYoga from "./assets/yoga.png";
 import imgSwim from "./assets/swim.png";
@@ -14,7 +15,7 @@ import glucides from "./assets/apple.png";
 import iconProtein from "./assets/chicken.png";
 import fatty from "./assets/cheeseburger.png";
 //Barchart
-import BarChart from "./components/BarChart/BarChart";
+import ActivityChartBar from "./components/BarChart/BarChart";
 //Data
 import MockData from "./data/data";
 import {
@@ -30,7 +31,9 @@ function App() {
   const userActivity = dataUserActivity(MockData);
   //console.log(userActivity.sessions[3]);
   const averageSessions = dataAverageSessions(MockData);
-  console.log(averageSessions);
+  // console.log(averageSessions);
+  const radarActivity = dataPerformance(MockData);
+  console.log(radarActivity.data);
 
   return (
     <div className="App">
@@ -52,14 +55,14 @@ function App() {
           </header>
           {/* Chart area need to resize and insert the correct tags */}
           <div className="dashContent">
-            <BarChart
+            <ActivityChartBar
               data={userActivity.sessions}
               title="Activité quotidienne"
               xDataKey=""
-              dataWeight="kilogram"
-              dataWeightAbri="Poids (kg)"
-              dataCalories="calories"
-              dataCaloriesAbri="Calories brülées (kCal)"
+              dataKg="kilogram"
+              legendDataKg="Poids (kg)"
+              dataCal="calories"
+              legendData2="Calories brülées (kCal)"
             />
             <SessionsChart
               data={averageSessions.sessions}
@@ -67,8 +70,8 @@ function App() {
               xDataKey="day"
               dataLength="sessionLength"
             />
-            <div className="avergAct"></div>
-            {/* <div className="actType"></div> */}
+            <RadaRactivityChart data={radarActivity} />
+
             <div className="score"></div>
 
             <div className="userDataContanier">

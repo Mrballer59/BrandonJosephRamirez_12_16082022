@@ -1,16 +1,16 @@
-.ActivityChartHeader {
+.activityChartHeader {
   display: flex;
   justify-content: space-between;
 }
 h2 {
   font-size: 15px;
 }
-.ActivityChartHeader ul {
+.activityChartHeader ul {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.ActivityChartHeader ul li {
+.activityChartHeader ul li {
   font-size: 14px;
   margin-left: 2rem;
 }
