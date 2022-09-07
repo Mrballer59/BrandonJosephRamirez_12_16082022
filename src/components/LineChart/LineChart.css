@@ -9,3 +9,14 @@
   color: var(--lightText);
   margin: 40px 100px 20px 30px;
 }
+.customToolTip {
+  background-color: rgb(221, 208, 208);
+  width: 39px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .lable {
+  font-size: 8px;
+} */
