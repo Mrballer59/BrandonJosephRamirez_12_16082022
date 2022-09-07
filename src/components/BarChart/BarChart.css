@@ -2,8 +2,8 @@
   padding-left: 30px;
   padding-top: 20px;
   padding-bottom: 20px;
-  /* background-color: var(--lightBackground); */
-  background-color: rgb(230, 182, 152);
+  background-color: var(--lightBackground);
+  /* background-color: rgb(230, 182, 152); */
   border-radius: 5px;
   grid-column: 1/4;
   height: 200px;
@@ -23,4 +23,27 @@ h2 {
 .activityChartHeader ul li {
   font-size: 14px;
   margin-left: 2rem;
+}
+.activityChartHeader ul li::marker {
+  font-size: 24px;
+}
+.redCircle::marker {
+  color: #e60000;
+}
+.custom-tooltip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 65px;
+  background-color: #e60000;
+}
+.lable {
+  font-size: 8px;
+  color: #ffff;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
