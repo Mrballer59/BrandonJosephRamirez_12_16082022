@@ -1,4 +1,12 @@
 import "./Consumption.css";
+/**
+ * These are the components that will show key consumption of user
+ * @param {string} className To set className of the elements displayed
+ * @param {string} className img image src
+ * @param {number} data
+ * @param {string} datatype Type of the data (carbohydrate, proteins, calories , lipids)
+ * @returns React Componet consumption
+ */
 
 function Consumption({ className, img, data, dataType }) {
   return (

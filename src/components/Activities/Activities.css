@@ -9,7 +9,7 @@
   background-color: var(--lightText);
 }
 @media screen and (max-width: 1200px) {
-  .iconBoxs {
+  .iconBox {
     width: 55px;
     height: 55px;
   }

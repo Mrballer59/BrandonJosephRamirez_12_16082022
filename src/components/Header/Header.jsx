@@ -1,7 +1,10 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../assets/logosport.png";
-
+/**
+ *
+ * @returns Header component of the application
+ */
 const Header = () => {
   return (
     <header className="mainHeader">

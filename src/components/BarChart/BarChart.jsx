@@ -10,7 +10,18 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+/**
+ * BarChart Part
+ * @param {Object} props The necessary keyword that we use to pass data through our component
+ * @param {Object} props .data is for the daily-activity data used for the barChart
+ * @param {String} props .dataKg data used for the black bars kg
+ * @param {String} props .dataCal data used for the red bars cal
+ * @param {String} props .legendDataKg is the Legend from dataKg
+ * @param {String} props .legendData2 is the legend from dataCal
+ * @param {String} props .title is the Title of the chart
+ * @param {String} props .xDataKey name of the data used for the X axis
+ * @returns React BarChart component using Recharts
+ */
 function ActivityChartBar(props) {
   const formatterDate = (item) => new Date(item).getDate();
   const CustomToolTip = ({ active, payload }) => {

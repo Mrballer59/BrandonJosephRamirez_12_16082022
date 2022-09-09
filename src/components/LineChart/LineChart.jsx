@@ -10,8 +10,18 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-function SessionsChart(data) {
-  console.log(data);
+/**
+ *
+ * @param {Object} props Necessary keyword to pass data to the components
+ * @param {Array} props .data average session data is used for the lineChart
+ * @param {string} props .dataLength name of data that passes data to the line
+ * @param {string} props .title Title of chart
+ * @param {string} props .xDataKey is the name of the data used for the X axis
+ * @returns React line Chart components using Recharts
+ */
+
+function SessionsChart(props) {
+  console.log(props);
   const daysWeek = {
     1: "L",
     2: "M",
@@ -35,15 +45,15 @@ function SessionsChart(data) {
   };
   return (
     <div className="averageSessions">
-      <h2>{data.title}</h2>
+      <h2>{props.title}</h2>
       <ResponsiveContainer width="100%" height="50%">
         <LineChart
-          data={data.data}
+          data={props.data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid vertical={false} horizontal={false} />
           <XAxis
-            dataKey={data.xDataKey}
+            dataKey={props.xDataKey}
             tick={{ fill: "#ffffff" }}
             tickLine={{ stroke: "" }}
             axisLine={{ stroke: "" }}
@@ -53,7 +63,7 @@ function SessionsChart(data) {
           <Tooltip content={CustomToolTip} cursor={false} />
           <Line
             type="monotone"
-            dataKey={data.dataLength}
+            dataKey={props.dataLength}
             stroke="#ffffff"
             dot={false}
           />
