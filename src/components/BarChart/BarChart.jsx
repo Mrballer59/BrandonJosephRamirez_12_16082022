@@ -80,6 +80,7 @@ function ActivityChartBar(props) {
           />
           <Tooltip
             content={<CustomToolTip />}
+            wrapperStyle={{ outline: "none" }}
             // cursor={{ fill: "#C4C4C4", width: 65, transform: "translate(28)" }}
           />
           {/* <Legend /> */}

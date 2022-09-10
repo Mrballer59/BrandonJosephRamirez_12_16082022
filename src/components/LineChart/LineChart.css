@@ -1,5 +1,11 @@
 .averageSessions {
-  background-color: red;
+  background: linear-gradient(
+    to right,
+    #ff0000 0%,
+    #ff0000 70%,
+    #e60000 70%,
+    #e60000 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,13 +16,14 @@
   margin: 40px 100px 20px 30px;
 }
 .customToolTip {
-  background-color: rgb(221, 208, 208);
+  background-color: rgb(255, 255, 255);
   width: 39px;
   height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* .lable {
-  font-size: 8px;
-} */
+.customToolTip p {
+  font-size: 7px;
+  color: black;
+}

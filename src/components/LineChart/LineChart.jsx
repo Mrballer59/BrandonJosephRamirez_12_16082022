@@ -46,7 +46,11 @@ function SessionsChart(props) {
   return (
     <div className="averageSessions">
       <h2>{props.title}</h2>
-      <ResponsiveContainer width="100%" height="50%">
+      <ResponsiveContainer
+        width="100%"
+        height="50%"
+        className="averageResponsive"
+      >
         <LineChart
           data={props.data}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -54,15 +58,19 @@ function SessionsChart(props) {
           <CartesianGrid vertical={false} horizontal={false} />
           <XAxis
             dataKey={props.xDataKey}
-            tick={{ fill: "#ffffff" }}
+            tick={{ fill: "#ffffff", opacity: 0.5 }}
             tickLine={{ stroke: "" }}
             axisLine={{ stroke: "" }}
             tickFormatter={listedDays}
           />
           <YAxis hide={true} />
-          <Tooltip content={CustomToolTip} cursor={false} />
+          <Tooltip
+            content={CustomToolTip}
+            cursor={false}
+            wrapperStyle={{ outline: "none" }}
+          />
           <Line
-            type="monotone"
+            type="natural"
             dataKey={props.dataLength}
             stroke="#ffffff"
             dot={false}
