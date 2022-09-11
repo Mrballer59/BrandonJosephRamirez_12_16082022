@@ -1,4 +1,5 @@
 import "./style/App.css";
+
 //components
 import Header from "./components/Header/Header";
 import Activities from "./components/Activities/Activities";
@@ -12,31 +13,48 @@ import imgFire from "./assets/fire.png";
 import glucides from "./assets/apple.png";
 import iconProtein from "./assets/chicken.png";
 import fatty from "./assets/cheeseburger.png";
+import Error from "./pages/404Error";
 //Barchart
 import SessionsChart from "./components/LineChart/LineChart";
 import WrapperRadarChart from "./components/RadarChart/WrapperRadarChart";
 import ActivityChartBar from "./components/BarChart/BarChart";
 import ScoreChart from "./components/PieChart/PieChart";
 //Data
+import { useEffect, useState } from "react";
 import MockData from "./data/data";
 import {
   dataUserActivity,
-  dataUserInforMain,
+  getFullInformation,
   dataAverageSessions,
   dataPerformance,
 } from "./data/DataSorter";
 function App() {
-  //console.log(MockData);
-  const userMainInformation = dataUserInforMain(MockData);
-  // console.log(userMainInformation);
-  const userActivity = dataUserActivity(MockData);
-  //console.log(userActivity.sessions[3]);
-  const averageSessions = dataAverageSessions(MockData);
-  // console.log(averageSessions);
-  const radarActivity = dataPerformance(MockData);
-  //HOW THAT YOU PASS THE DATA HERE
+  console.log(MockData);
+
+  // //HOW THAT YOU PASS THE DATA HERE
+
+  const [userMainInformation, setuserMainInfo] = useState(null);
+  console.log(userMainInformation);
+
+  const [userActivity, setuserActivity] = useState(null);
+  console.log(userActivity);
+
+  const [averageSessions, setaverageSessions] = useState(null);
+  console.log(averageSessions);
+
+  const [radarActivity, setradarActivity] = useState(null);
   console.log(radarActivity);
 
+  useEffect(() => {
+    (async () => {
+      setuserMainInfo(await getFullInformation());
+      setuserActivity(await dataUserActivity());
+      setaverageSessions(await dataAverageSessions());
+      setradarActivity(await dataPerformance());
+    })();
+  }, []);
+
+  if (!userMainInformation) return <Error />;
   return (
     <div className="App">
       <Header />
