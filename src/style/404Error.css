@@ -1,0 +1,23 @@
+h3 {
+  font-size: 288px;
+  font-weight: 700;
+  margin: 50px;
+}
+
+.section404 {
+  text-align: center;
+  padding: 100px 0;
+  color: var(--main);
+}
+
+.section404 p {
+  font-size: 36px;
+  margin-bottom: 50px;
+  color: #000000;
+}
+
+.backHomeLink {
+  font-size: 18px;
+  text-decoration: underline;
+  color: var(--main);
+}
