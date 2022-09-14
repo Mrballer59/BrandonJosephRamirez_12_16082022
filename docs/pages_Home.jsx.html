@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/Home.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/Home.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState, useContext } from "react";
+import { DataContextManager } from "../data/DataContext";
+import { useParams } from "react-router-dom";
+import Header from "../components/Header/Header";
+import Activities from "../components/Activities/Activities";
+import Consumption from "../components/Consumption/Consumption";
+//Assets
+import imgYoga from "../assets/yoga.png";
+import imgSwim from "../assets/swim.png";
+import imgBike from "../assets/cycle.png";
+import imgGym from "../assets/gym.png";
+import imgFire from "../assets/fire.png";
+import glucides from "../assets/apple.png";
+import iconProtein from "../assets/chicken.png";
+import fatty from "../assets/cheeseburger.png";
+import Loader from "../components/Buffering/Buffering";
+import "../style/Home.css";
+//Barchart
+import SessionsChart from "../components/LineChart/LineChart";
+import WrapperRadarChart from "../components/RadarChart/WrapperRadarChart";
+import CreateBar from "../components/BarChart/BarChart";
+import ScoreChart from "../components/PieChart/PieChart";
+/**
+ *
+ * @returns {jsx} this page renders the dashboard
+ */
+function Home() {
+  //
+  const { id } = useParams();
+
+  const dataSeekers = useContext(DataContextManager);
+  const { getUserData, getUserActivity, getUserSessions, getUserPerformance } =
+    dataSeekers;
+  // States that hold all the data of the users
+  const [userMainData, setUserData] = useState([]);
+  const [userActivity, setUserActivity] = useState({ data: [] });
+  const [userSessions, setUserSessions] = useState({ data: [] });
+  const [userPerformance, setUserPerformance] = useState({ data: [] });
+
+  useEffect(() => {
+    getUserData(id).then((res) => {
+      setUserData(res);
+    });
+    getUserActivity(id).then((res) => {
+      setUserActivity(res);
+    });
+    getUserSessions(id).then((res) => {
+      setUserSessions(res);
+    });
+    getUserPerformance(id).then((res) => {
+      setUserPerformance(res);
+    });
+  }, [id, getUserData, getUserActivity, getUserSessions, getUserPerformance]);
+  // Buffer added for to give a little touch for the async wait.
+  if (userMainData.length === 0) {
+    return &lt;Loader />;
+  }
+  return (
+    &lt;div className="App">
+      &lt;Header />
+      &lt;div>
+        {/* Side Activities Icons part */}
+        &lt;aside>
+          &lt;div className="activities-1">
+            &lt;Activities img={imgYoga} alt="Yoga" />
+            &lt;Activities img={imgSwim} alt="Swimming" />
+            &lt;Activities img={imgBike} alt="Cycling" />
+            &lt;Activities img={imgGym} alt="Gym" />
+          &lt;/div>
+          &lt;p className="copyrights">Copyrights, sportSee 2020&lt;/p>
+        &lt;/aside>
+        &lt;section className="dashboardSection">
+          &lt;header className="dashboardHeader">
+            &lt;h1>
+              Bonjour &lt;span>{userMainData.userInfos.firstName}&lt;/span>
+            &lt;/h1>
+            &lt;p>Félicitation ! Vous avez explosé vos objectifs hier 👏🏽&lt;/p>
+          &lt;/header>
+          {/* Chart area */}
+          &lt;div className="dashContent">
+            &lt;CreateBar
+              userActivity={userActivity}
+              title="Activité quotidienne"
+              xDataKey="day"
+              dataKg="kilogram"
+              legendDataKg="Poids (kg)"
+              dataCal="calories"
+              legendData2="Calories brülées (kCal)"
+            />
+            &lt;SessionsChart
+              userSessions={userSessions}
+              title="Durée moyenne des sessions"
+              xDataKey="day"
+              dataLength="sessionLength"
+            />
+
+            &lt;WrapperRadarChart userPerformance={userPerformance} />
+            &lt;ScoreChart userMainData={userMainData} title="Score" />
+
+            &lt;div className="userDataContanier">
+              &lt;Consumption
+                className="imgFire"
+                img={imgFire}
+                data={userMainData.keyData.calorieCount}
+                dataType="Calories"
+              />
+              &lt;Consumption
+                className="iconProtein"
+                img={iconProtein}
+                data={userMainData.keyData.proteinCount}
+                dataType="Proteines"
+              />
+              &lt;Consumption
+                className="glucides"
+                img={glucides}
+                data={userMainData.keyData.carbohydrateCount}
+                dataType="Glucides"
+              />
+              &lt;Consumption
+                className="fatty"
+                img={fatty}
+                data={userMainData.keyData.lipidCount}
+                dataType="Lipides"
+              />
+            &lt;/div>
+          &lt;/div>
+        &lt;/section>
+      &lt;/div>
+    &lt;/div>
+  );
+}
+export default Home;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-DataProvider.html">DataProvider</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Activities">Activities</a></li><li><a href="global.html#ActivityChartBar">ActivityChartBar</a></li><li><a href="global.html#Consumption">Consumption</a></li><li><a href="global.html#formatterDate">formatterDate</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#ScoreChart">ScoreChart</a></li><li><a href="global.html#SessionsChart">SessionsChart</a></li><li><a href="global.html#WrapperRadarChart">WrapperRadarChart</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Wed Sep 14 2022 14:34:00 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
