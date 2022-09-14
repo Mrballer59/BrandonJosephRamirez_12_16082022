@@ -1,4 +1,5 @@
 .todayScore {
+  grid-area: score;
   border-radius: 5px;
   background-color: var(--lightBackground);
   padding-top: -200px;
@@ -7,8 +8,8 @@
 }
 .todayScore h2 {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 5%;
+  left: 5%;
 }
 .scorePercent {
   font-size: 26px;
@@ -27,4 +28,10 @@
   transform: translateX(-50%) translateY(-50%);
   width: 95px;
   margin: 0;
+}
+@media screen and (max-width: 1200px) {
+  .todayScore h2 {
+    top: 1%;
+    left: 4%;
+  }
 }

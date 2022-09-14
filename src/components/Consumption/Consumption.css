@@ -51,4 +51,5 @@
 
 .dataText p:nth-child(0n + 2) {
   font-size: 14px;
+  font-weight: 500;
 }

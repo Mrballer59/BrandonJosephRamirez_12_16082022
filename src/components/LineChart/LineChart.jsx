@@ -1,4 +1,5 @@
 import "./LineChart.css";
+import propTypes from "prop-types";
 import {
   LineChart,
   Line,
@@ -12,16 +13,13 @@ import {
 
 /**
  *
- * @param {Object} props Necessary keyword to pass data to the components
- * @param {Array} props .data average session data is used for the lineChart
- * @param {string} props .dataLength name of data that passes data to the line
- * @param {string} props .title Title of chart
- * @param {string} props .xDataKey is the name of the data used for the X axis
+ * @param {Object} userSessions Necessary keyword to pass data to the components
+ * @param {Array} payload
+ * @param {Boolean} active Necessary keyword to is used for custom tooltip for the hover to show each session
  * @returns React line Chart components using Recharts
  */
-
-function SessionsChart(props) {
-  console.log(props);
+function SessionsChart({ userSessions }) {
+  console.log(userSessions);
   const daysWeek = {
     1: "L",
     2: "M",
@@ -37,7 +35,7 @@ function SessionsChart(props) {
     if (active && payload && payload.length) {
       return (
         <div className="customToolTip">
-          <p className="lable">{`${payload[0].value}min`}</p>
+          <p className="lable">{`${payload[0].value} min`}</p>
         </div>
       );
     }
@@ -45,25 +43,25 @@ function SessionsChart(props) {
   };
   return (
     <div className="averageSessions">
-      <h2>{props.title}</h2>
+      <h2>Durée moyenne des sessions</h2>
       <ResponsiveContainer
-        width="100%"
-        height="50%"
+        width="90%"
+        height="90%"
         className="averageResponsive"
       >
         <LineChart
-          data={props.data}
+          data={userSessions.sessions}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <CartesianGrid vertical={false} horizontal={false} />
           <XAxis
-            dataKey={props.xDataKey}
+            dataKey="day"
             tick={{ fill: "#ffffff", opacity: 0.5 }}
             tickLine={{ stroke: "" }}
             axisLine={{ stroke: "" }}
             tickFormatter={listedDays}
           />
-          <YAxis hide={true} />
+          <YAxis hide={true} domain={["dataMin -15", "dataMax + 45"]} />
           <Tooltip
             content={CustomToolTip}
             cursor={false}
@@ -71,9 +69,10 @@ function SessionsChart(props) {
           />
           <Line
             type="natural"
-            dataKey={props.dataLength}
+            dataKey="sessionLength"
             stroke="#ffffff"
             dot={false}
+            strokeWidth={1.5}
           />
         </LineChart>
       </ResponsiveContainer>

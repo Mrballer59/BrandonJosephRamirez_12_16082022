@@ -1,5 +1,5 @@
 .activity {
+  grid-area: repartition;
   border-radius: 5px;
   background-color: #282d30;
-  width: 245px;
 }

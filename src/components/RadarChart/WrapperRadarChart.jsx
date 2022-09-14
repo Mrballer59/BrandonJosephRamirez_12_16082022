@@ -1,5 +1,6 @@
 import React from "react";
 import "./RadarChart.css";
+import propTypes from "prop-types";
 import {
   Radar,
   RadarChart,
@@ -9,62 +10,46 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-//destructuring the data and getting the "kind" to display the data
-
-//({ data: { kind } })
 /**
- * 
- * @param {Object} props keyword used to pass data to the component 
- * @param {Object} props .data is used to pass data to the component
- 
+ * frenchTitle converts english into french
+ * @param {String} title  seeting used for chaning titles
+ * @param {String} frenchTitle  is a varible to translate into french
  * @returns React radar chart component using Recharts
  */
-const WrapperRadarChart = () => {
-  const data = [
-    {
-      subject: "Intensité",
-      A: 90,
-    },
-    {
-      subject: "Vitesse",
-      A: 200,
-    },
-    {
-      subject: "Force",
-      A: 50,
-    },
-    {
-      subject: "Endurance",
-      A: 140,
-    },
-    {
-      subject: "Energie",
-      A: 120,
-    },
-    {
-      subject: "Cardio",
-      A: 80,
-    },
-  ];
-  //GETTING THE CORRECT LIST MAYBE NEED TO GRAB THE
-  //LIST OF ARRY AND MAKE A NEW DATA AND PASS IT THROUGH
-  console.log();
+const WrapperRadarChart = ({ userPerformance }) => {
+  const translatedTitle = (title) => userPerformance.kind[title];
+  const tranlate = {
+    intensity: "Intensité",
+    cardio: "Cardio",
+    energy: "Energie",
+    endurance: "Endurance",
+    strength: "Force",
+    speed: "Vitesse",
+  };
+  const frenchTitle = (title) => tranlate[translatedTitle(title)];
 
   return (
     <div className="activity">
       <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
+        <RadarChart
+          outerRadius="66%"
+          startAngle={-150}
+          endAngle={+210}
+          data={userPerformance.data}
+        >
           <PolarGrid radialLines={false} />
           <PolarAngleAxis
-            dataKey="subject" //try kind also
-            //tickFormatter={() => {}}
+            dataKey="kind"
             tick={{ fill: "#ffffff" }}
-            tickCount={6}
+            tickFormatter={frenchTitle}
+            tickLine={false}
+            fontSize={12}
+            // tickCount={6}
           />
-          <PolarRadiusAxis tick={false} axisLine={false} />
+          <PolarRadiusAxis tickCount={6} tick={false} axisLine={false} />
           <Radar
             name="RadarActivity"
-            dataKey="A"
+            dataKey="value"
             stroke="#FF0101"
             fill="#FF0101"
             fillOpacity={0.7}
