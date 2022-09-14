@@ -14,7 +14,7 @@ h1 span {
   color: var(--main);
 }
 
-.app {
+.App {
   position: relative;
 }
 
@@ -34,6 +34,7 @@ aside {
   margin-top: 3rem;
 }
 .copyrights {
+  grid-area: copyrights;
   color: var(--lightText);
   font-size: 1rem;
   text-orientation: sideways;
@@ -44,8 +45,6 @@ aside {
 .dashboardSection {
   height: 100%;
   background-color: transparent;
-  /* margin-left: 220px;
-  margin-right: 90px; */
   margin: 0 90px 50px 220px;
   padding-top: 100px;
 }
@@ -58,6 +57,9 @@ aside {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    ". . . ."
+    "duration repartition score .";
   gap: 30px;
 }
 

@@ -2,11 +2,11 @@ const USER_MAIN_DATA = [
   {
     id: 12,
     userInfos: {
-      firstName: "Karl",
+      firstName: "Brandon",
       lastName: "Dovineau",
       age: 31,
     },
-    todayScore: 0.12,
+    todayScore: 0.23,
     keyData: {
       calorieCount: 1930,
       proteinCount: 155,
@@ -17,11 +17,11 @@ const USER_MAIN_DATA = [
   {
     id: 18,
     userInfos: {
-      firstName: "Cecilia",
+      firstName: "Jacob",
       lastName: "Ratorez",
       age: 34,
     },
-    score: 0.3,
+    score: 0.7,
     keyData: {
       calorieCount: 2500,
       proteinCount: 90,
@@ -38,22 +38,22 @@ const USER_ACTIVITY = [
       {
         day: "2020-07-01",
         kilogram: 80,
-        calories: 240,
+        calories: 540,
       },
       {
         day: "2020-07-02",
         kilogram: 80,
-        calories: 220,
+        calories: 320,
       },
       {
         day: "2020-07-03",
         kilogram: 81,
-        calories: 280,
+        calories: 380,
       },
       {
         day: "2020-07-04",
         kilogram: 81,
-        calories: 290,
+        calories: 350,
       },
       {
         day: "2020-07-05",
@@ -188,15 +188,15 @@ const USER_PERFORMANCE = [
     userId: 12,
     kind: {
       1: "cardio",
-      2: "énergie",
+      2: "energy",
       3: "endurance",
-      4: "force",
-      5: "vitesse",
-      6: "intensité",
+      4: "strength",
+      5: "speed",
+      6: "intensity",
     },
     data: [
       {
-        value: 80,
+        value: 95,
         kind: 1,
       },
       {
@@ -208,7 +208,7 @@ const USER_PERFORMANCE = [
         kind: 3,
       },
       {
-        value: 50,
+        value: 75,
         kind: 4,
       },
       {
@@ -225,11 +225,11 @@ const USER_PERFORMANCE = [
     userId: 18,
     kind: {
       1: "cardio",
-      2: "énergie",
+      2: "energy",
       3: "endurance",
-      4: "force",
-      5: "vitesse",
-      6: "intensité",
+      4: "strength",
+      5: "speed",
+      6: "intensity",
     },
     data: [
       {
