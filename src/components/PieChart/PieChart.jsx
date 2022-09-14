@@ -47,3 +47,6 @@ const ScoreChart = ({ userMainData }) => {
   );
 };
 export default ScoreChart;
+ScoreChart.propTypes = {
+  userMainData: propTypes.object,
+};

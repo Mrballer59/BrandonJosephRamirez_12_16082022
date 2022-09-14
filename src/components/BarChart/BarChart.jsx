@@ -102,3 +102,8 @@ function ActivityChartBar({ userActivity }) {
   );
 }
 export default ActivityChartBar;
+ActivityChartBar.propTypes = {
+  userActivity: propTypes.object.isRequired,
+  active: propTypes.bool,
+  payload: propTypes.array,
+};

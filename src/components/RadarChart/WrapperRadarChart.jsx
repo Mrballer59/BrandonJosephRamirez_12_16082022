@@ -61,3 +61,7 @@ const WrapperRadarChart = ({ userPerformance }) => {
 };
 
 export default WrapperRadarChart;
+WrapperRadarChart.propTypes = {
+  userPerformance: propTypes.object.isRequired,
+  item: propTypes.string,
+};

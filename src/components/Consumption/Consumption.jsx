@@ -23,3 +23,9 @@ function Consumption({ className, img, data, dataType }) {
   );
 }
 export default Consumption;
+Consumption.protoTypes = {
+  img: propTypes.string.isRequired,
+  data: propTypes.number.isRequired,
+  datatype: propTypes.string.isRequired,
+  className: propTypes.string.isRequired,
+};

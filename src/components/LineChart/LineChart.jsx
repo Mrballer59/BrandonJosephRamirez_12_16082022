@@ -80,3 +80,8 @@ function SessionsChart({ userSessions }) {
   );
 }
 export default SessionsChart;
+SessionsChart.prototypes = {
+  userSessions: propTypes.object.isRequired,
+  active: propTypes.bool,
+  payload: propTypes.array,
+};
