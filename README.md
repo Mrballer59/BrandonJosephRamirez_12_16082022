@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+![made-with-node](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![made-with-react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![made-with-react-rooter](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SportSee - Front end
 
-## Available Scripts
+## 1. Project
 
-In the project directory, you can run:
+This project is a front end project.SportSee is a startup dedicated to sports coaching. The profile page is a dashboard of diffrents users. The goal of the project is to create the dashboard displaying sport informations (session duration, weight, activity...) of the user in multiples charts.
+For the technical side, the goal is to use API and mocked data (used in a switch system) to deliver the user data to the user's page rendered in various charts (from the recharts library).
 
-### `npm start`
+## 2. Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Tools
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [NodeJS(16.13.1)](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [yarn](https://yarnpkg.com/)
 
-### `npm test`
+## 3. Install project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3.1 With Micro API
 
-### `npm run build`
+#### Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Fork the [Backend](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard) repository
+- Clone it on your computer.
+- Use the`npm install command` to install all the dependencies.
+- The `npm start ` command will allow you to run the micro API.
+- The back end will run at port 3000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Frontend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Clone this repository.
+- The `npm install` command will allow you to install the dependencies.
+- The `npm start` command will allow you to run the app.
+- The front end will run at port 3001.
 
-### `npm run eject`
+### 3.2 With mocked data
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Frontend only
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Clone this repository.
+- You can switch data from API to Mocked data in the DataContext.js in the data folder file by changing:
+- const path = "http://localhost:3000" to const path = "http://localhost:3001"
+- This will run an error and fechtes the mocked data instead of the API data from the Back.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### JSdoc
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- You can also run the jsdoc by opening docs/index.html file in Live Server.
 
-## Learn More
+#### About
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- when starting the project remember to use the correct path by adding /users/12 or /users/18 to view the charts depending on what you want to see ( mocked API or Real API)
+- Example http://localhost:3001/user/12
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Author
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Brandon JOSEPH RAMIREZ
